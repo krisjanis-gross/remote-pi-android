@@ -74,7 +74,7 @@
 		
 		<div> 
 			<a href="#" onclick="web_log_in();" data-role="button" id="logon_button" data-icon="lock" >Go</a>
-
+			<a href="#" data-role="button" id="test_button" data-icon="star" >test</a>
 		</div>
 	</div>
 	
@@ -135,6 +135,7 @@
 			    		<option value="1">On</option> 
 			    	</select>
 				</label>
+				<a href="#" data-role="button" id="test_button2" data-icon="star" >test</a>
 			</div>
 			</div>
 		</div>
@@ -221,9 +222,10 @@
     <div data-role="popup" id="popupSensorMenu" data-theme="a" class="ui-corner-all">
 			<form>
 				<div style="padding:10px 20px;">
-				  <h3>Sensor Menu</h3>
-		    	  <a href="#" data-role="button" id="single_sensor_history" data-icon="check" >Show History _ToDo :)</a>
-		    	  <a href="#" data-role="button" id="sensor_name_form" data-icon="check" >Edit sensor label _ToDo</a>
+				  <h3 id=sensor_menu_title>Sensor Menu</h3>
+				  
+		    	  <a href="#" data-role="button" id="single_sensor_history" data-icon="search" >Show Sensor readings</a>
+		    	  <a href="#" data-role="button" id="sensor_name_form" data-icon="edit" >Edit sensor label _ToDo</a>
 				</div>
 			</form>
 	</div>	
@@ -254,8 +256,8 @@
 		
 <script src="js/remote_pi.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
-  
-  
+<script type="text/javascript" src="js/jquery.jcryption.3.1.0.js"></script>
+ 
   
  <!-- 
 	<script src="js/remote_pi_APP.js"></script>
@@ -274,6 +276,9 @@ else {
 	document.writeln("<script type='text/javascript' src='js/remote_pi_WEB.js'><\/script>");
 }
 </script>
+ 
+ <script src="js/json_encrypted_API.js"></script>   
+ 
  
 </body>
 </html>
