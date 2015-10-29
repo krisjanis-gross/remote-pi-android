@@ -258,27 +258,30 @@ function refresh_triggers ()
 	active_page = "triggers";
 	change_tab (active_page);
 	
-
-	var URL = "http://" + target_URL + "/app_TRIGGER_list.php";
 	
+	var action = "get_trigger_list";	
+	var data_to_server =  "";
 	
-	$.getJSON(URL, function(data) {
-		  var items = [];
-		  var parameter_array = [];
-		  $.each(data, function(key, val) {
+	// get data from server
+	var data_from_server = json_encrypted_request (action,data_to_server);
+	
+	if (data_from_server.response_code == "OK") {
+	var items = [];
+	var parameter_array = [];
+	  $.each(data_from_server.response_data, function(key, val) {
 			
-			var parameters_html = "<br/><span>Trigger parameters:";
-			//alert(typeof(val.parameters));
-			if( val.parameters != null ){
-				$.each(val.parameters, function(parameter_id, parameter_data)  {
-					parameters_html = parameters_html + '<a id="parameter_' + parameter_id + '" class="ui-btn">'+ parameter_data.name + ' = ' + parameter_data.par_value +'</a> ';
+	  var parameters_html = "<br/><span>Trigger parameters:";
+	  //alert(typeof(val.parameters));
+	  if( val.parameters != null ){
+		$.each(val.parameters, function(parameter_id, parameter_data)  {
+				parameters_html = parameters_html + '<a id="parameter_' + parameter_id + '" class="ui-btn">'+ parameter_data.name + ' = ' + parameter_data.par_value +'</a> ';
 					
-					var parameter_object = {
+				var parameter_object = {
 						'parameter_id' : parameter_id,
 						'parameter_name' : parameter_data.name,
 						'parameter_value' : parameter_data.par_value
 					};
-					parameter_array.push(parameter_object);
+				parameter_array.push(parameter_object);
 					
 					
 				});
@@ -298,7 +301,7 @@ function refresh_triggers ()
 		  //$('#trigger_tab').html(items.join(''));
 		  $('#trigger_tab').html( '<ul data-role="listview">' + items.join('') + '</ul>');
 		  
-		  $.each(data, function(key, val) {
+		  $.each(data_from_server.response_data, function(key, val) {
 				  $('#trigger-flip-' + key).slider();
 				  if ( val.state == 1) $('#trigger-flip-' + key).val(1);
 				  if ( val.state == 0) $('#trigger-flip-' + key).val(0);
@@ -307,7 +310,7 @@ function refresh_triggers ()
 		  
 		  $("#trigger_tab").trigger("create");
 					
-		  $.each(data, function(key, val) {
+		  $.each(data_from_server.response_data, function(key, val) {
 				$( "#trigger-flip-" + key ).bind( "change", {key : key}, 
 														function(event) {
 															toggle_trigger( event.data.key );
@@ -328,27 +331,24 @@ function refresh_triggers ()
 															edit_parameter(event.data.id, event.data.name, event.data.value)
 														});
 				}
-		});		
+	}		
 }
 
 function toggle_trigger (id) {
-	if($('#trigger-flip-' + id).val()==0) set_trigger('?command=0&trigger_id=' + id);
-	if($('#trigger-flip-' + id).val()==1) set_trigger('?command=1&trigger_id=' + id);
+	if($('#trigger-flip-' + id).val()==0) set_trigger(id,"0");
+	if($('#trigger-flip-' + id).val()==1) set_trigger(id,"1");
 }
 
-function set_trigger (argument )
-{
-	var URL = "http://" + target_URL + "/app_TRIGGER_control.php" + argument;
-$.ajax({
-       url:URL,
-       success: function(result) {
-    	   alert ("done!");
-   // $('#trigger_tab').html(result);
-      }, // this line is edited later
- 		error: function(result) {
- 			alert ("There was an error performing the action!");
-      } // this line is edited later
-    });
+function set_trigger (trigger_id, command )
+{ 
+	var action = "trigger_control";	
+	var data_to_server =  {
+			'trigger_id' : trigger_id,
+			'command' : command
+		};
+	
+	// send the command
+	var data_from_server = json_encrypted_request (action,data_to_server);
 
 }
 
