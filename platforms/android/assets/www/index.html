@@ -1,33 +1,7 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
+		<meta charset="UTF-8"> 
         <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -63,7 +37,7 @@
     
    <!-- WEB login Page ---------------------------------------------------------------------------------> 
  <div data-role="page" id="web_login">
-	<div data-role="header" data-position="fixed"><h1 id="header_1">Login to Raspberry at <IP> </h1></div>
+	<div data-role="header" data-position="fixed"><h1 id="header_1">Login to Raspberry at _IP_ </h1></div>
 	<div role="main" class="ui-content" data-theme='a'>
 		<div>
 					<label>
@@ -142,7 +116,7 @@
     </div><!-- /content -->
 </div><!-- /page -->
 
-</div>
+
 
 <!-- Target Form Page ----------------------------------------------------------------------------------->
     
@@ -245,37 +219,39 @@
 </div><!-- /page -->
 
 
-	
-</div>
  
   <!-- End of  parameter Page  ------------------------------------------------------------------------------->
   
-  
-		
-<script src="js/remote_pi.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/jquery.jcryption.3.1.0.js"></script>
- 
-  
+<script type="text/javascript" src="js/jquery.jcryption.3.1.0.js"></script>  
+<script src="js/json_encrypted_API.js"></script> 
+	
+<script type="text/javascript" src="js/remote_pi.js"></script>
+
+   
  <!-- 
-	<script src="js/remote_pi_APP.js"></script>
+	 <script type='text/javascript' src='js/remote_pi_WEB.js'></script>
+	 
+	 
+	<script src='js/cordova.js'></script>
+  	<script src="js/remote_pi_APP.js"></script>
 	<script type="text/javascript" charset="utf-8" src="plugins/io.litehelpers.cordova.sqlite/www/SQLitePlugin.js"></script>
 	
-	<script src="js/remote_pi_WEB.js"></script> 
  -->
- <script type="text/javascript">
+ 
+<script type="text/javascript">
  var ua = navigator.userAgent.toLowerCase();
 var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 if(isAndroid) {
-	document.writeln("<script src='js/remote_pi_APP.js'><\/script>");
+ 
 	document.writeln("<script type='text/javascript' charset='utf-8'  src='plugins/io.litehelpers.cordova.sqlite/www/SQLitePlugin.js'><\/script>");
+	document.writeln("<script src='js/cordova.js'><\/script>");
+	document.writeln("<script type='text/javascript' src='js/remote_pi_APP.js'><\/script>");
 }
 else {
 	document.writeln("<script type='text/javascript' src='js/remote_pi_WEB.js'><\/script>");
 }
 </script>
- 
- <script src="js/json_encrypted_API.js"></script>   
+
  
  
 </body>
