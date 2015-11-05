@@ -499,9 +499,6 @@ function show_history_callback(data_from_server) {
 																
 															}, 2000);
 									
-									
-									
-									
 									}
 								}
 		    	            },
