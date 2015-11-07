@@ -1,0 +1,3 @@
+D:\cordova\remote_pi\platforms\android\build\intermediates\classes\debug
+D:\cordova\remote_pi\platforms\android\build\intermediates\pre-dexed\debug\classes-92fd88f43e2e04b31330d543f4f63dd33deee1f0.jar
+D:\cordova\remote_pi\platforms\android\build\intermediates\pre-dexed\debug\sqlite4java-fe1c32687f6eacae19c10f041164c9f66860362b.jar

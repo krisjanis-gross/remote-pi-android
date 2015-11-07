@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\cordova\remote_pi\platforms\android\libs\sqlite4java.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d6234e08ff4e1607ff5321da2579571f05ff778d">
+        <dex dex="D:\cordova\remote_pi\platforms\android\build\intermediates\pre-dexed\debug\sqlite4java-fe1c32687f6eacae19c10f041164c9f66860362b.jar" />
+    </item>
+    <item
+        jar="D:\cordova\remote_pi\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ec7c8b912fc652442508d282fb621edaee656db7">
+        <dex dex="D:\cordova\remote_pi\platforms\android\build\intermediates\pre-dexed\debug\classes-92fd88f43e2e04b31330d543f4f63dd33deee1f0.jar" />
+    </item>
+
+</items>
