@@ -590,8 +590,11 @@ function change_tab (active_page) {
 	
 }
 function export_data () {
-	
-	var URL = "http://" + target_URL + "/csv_export.php?&period=" + global_time_interval + global_date_range_URL ;
+	var sensor_selection_url = "";
+	if (global_single_selected_sensor_id != "") { 
+		sensor_selection_url = "&single_sensor_selected=" + global_single_selected_sensor_id;
+	}
+	var URL = "http://" + target_URL + "/csv_export.php?&period=" + global_time_interval + global_date_range_URL + sensor_selection_url ;
 	window.location.href = URL;
 }
 
