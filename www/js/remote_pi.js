@@ -312,7 +312,7 @@ function refresh_triggers_callback (data_from_server) {
 			  });
 			 
 			  //$('#trigger_tab').html(items.join(''));
-			  $('#trigger_tab').html( '<ul data-role="listview">' + items.join('') + '<br/><li><a href="#" data-role="button" id="new_trigger" data-icon="plus">New Trigger</a></li></ul>');
+			  $('#trigger_tab').html( '<ul data-role="listview">' + items.join('') + '<br/><li><a href="#" data-role="button" id="new_trigger" data-icon="plus">Add New Trigger</a></li></ul>');
 			  
 			  $.each(data_from_server.response_data, function(key, val) {
 					  $('#trigger-flip-' + key).slider();
