@@ -11,7 +11,7 @@ $(document).ready(function()
 	        }, reload_interval);
 	    
 	    // jcription? 
-	    password = $.jCryption.encrypt("remote_pi", "889977665");
+	   // password = $.jCryption.encrypt("remote_pi", "889977665");
     
 	    
     });
@@ -345,7 +345,7 @@ function check_connection()
 	$('#connection_notification_bar').show();
 	if ((target_URL != "") && (target_URL != null)) {
 		//alert ("before handshake"  + target_URL );
-		jCription_handshake (target_URL,password,function () {alert("callback from handshake function!")});
+		//jCription_handshake (target_URL,password,function () {alert("callback from handshake function!")});
 		//check_target_version();	
 		setTimeout(APP_check_for_session_on_server, 1000); 
 		}
